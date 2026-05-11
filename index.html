@@ -4,82 +4,41 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#0f766e">
-  <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="styles.css">
-  <title>基本情報 一問一答</title>
+  <title>しんご学習ポータル</title>
 </head>
 <body>
-  <main class="app">
-    <header class="topbar">
-      <div>
-        <h1>基本情報 一問一答</h1>
-        <p id="subtitle">しんご専用・弱点復習版</p>
-      </div>
-      <div class="badge"><span id="totalCount">0</span>問</div>
+  <main class="portal">
+    <header class="hero">
+      <div class="logo">S</div>
+      <h1>しんご学習ポータル</h1>
+      <p>基本情報技術者試験 × TOEIC600 英単語</p>
     </header>
 
-    <section id="home" class="card">
-      <h2>今日の学習を始める</h2>
-      <p>出題方法を選んで、すぐに一問一答を始められます。間違えた問題と保存した問題はここから復習できます。</p>
-      <div id="offline" class="notice">オフライン準備中です</div>
+    <section class="grid">
+      <a class="card fe" href="./fe/">
+        <div class="icon">💻</div>
+        <div>
+          <h2>基本情報 一問一答</h2>
+          <p>科目A・科目B・弱点復習。JSON追加対応。</p>
+          <span>開く →</span>
+        </div>
+      </a>
+
+      <a class="card en" href="./english/">
+        <div class="icon">🔊</div>
+        <div>
+          <h2>TOEIC600 英単語3000</h2>
+          <p>単語・例文・日本語訳・音声読み上げつき。</p>
+          <span>開く →</span>
+        </div>
+      </a>
     </section>
 
-    <section class="stats">
-      <div><strong id="studied">0</strong><span>学習済</span></div>
-      <div><strong id="correct">0</strong><span>正解</span></div>
-      <div><strong id="wrong">0</strong><span>不正解</span></div>
-      <div><strong id="saved">0</strong><span>保存</span></div>
-    </section>
-
-    <section class="card tools">
-      <h2>過去問10年分対応</h2>
-      <p>JSON形式の問題データを読み込むと、アプリ内の問題をまとめて差し替えできます。出典欄に「令和○年度 基本情報 午前 問○」のように入れる想定です。</p>
-      <label class="fileLabel">
-        問題JSONを読み込む
-        <input id="importFile" type="file" accept=".json">
-      </label>
-      <button id="resetImport" class="ghost wide">初期30問に戻す</button>
-      <div class="filterRow">
-        <select id="categoryFilter">
-          <option value="">全カテゴリ</option>
-        </select>
-      </div>
-    </section>
-
-    <section id="menu" class="menu">
-      <button class="mode primary" data-mode="random">
-        <span>ランダム出題</span><small>全範囲からシャッフルして出題</small><b id="randomCount">0</b>
-      </button>
-      <button class="mode" data-mode="order">
-        <span>番号順に学習</span><small>問題001から順番に確認</small><b>順</b>
-      </button>
-      <button class="mode" data-mode="wrong">
-        <span>間違えた問題</span><small>直近で不正解だった問題だけ復習</small><b id="wrongCount">0</b>
-      </button>
-      <button class="mode" data-mode="saved">
-        <span>保存した問題</span><small>苦手・後で見たい問題だけ確認</small><b id="savedCount">0</b>
-      </button>
-    </section>
-
-    <section id="quiz" class="card hidden">
-      <div class="quiz-head">
-        <button id="backBtn" class="ghost">← 戻る</button>
-        <div id="progress">1 / 30</div>
-      </div>
-      <div class="meta">
-        <span id="category">カテゴリ</span>
-        <button id="saveBtn" class="save">☆ 保存</button>
-      </div>
-      <div id="source" class="source"></div>
-      <h2 id="question">問題文</h2>
-      <div id="choices" class="choices"></div>
-      <div id="result" class="result hidden"></div>
-      <div class="actions">
-        <button id="nextBtn" class="next hidden">次の問題へ</button>
-      </div>
+    <section class="note">
+      <h3>使い方</h3>
+      <p>GitHub Pagesで公開したら、このトップ画面から「基本情報」と「英単語」を選べます。iPhoneではSafariで開いて「ホーム画面に追加」するとアプリっぽく使えます。</p>
     </section>
   </main>
-  <script src="questions.js"></script>
-  <script src="app.js"></script>
 </body>
 </html>

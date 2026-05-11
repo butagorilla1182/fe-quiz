@@ -1,0 +1,902 @@
+[
+  {
+    "id": 1,
+    "word": "accomplish",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "達成する",
+    "example": "I want to accomplish my study goals before the exam.",
+    "example_ja": "試験前に学習目標を達成したい。"
+  },
+  {
+    "id": 2,
+    "word": "accurate",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "正確な",
+    "example": "Accurate information is essential for analysis.",
+    "example_ja": "正確な情報は分析に不可欠だ。"
+  },
+  {
+    "id": 3,
+    "word": "additional",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "追加の",
+    "example": "We need additional time to review the report.",
+    "example_ja": "報告書を確認するために追加の時間が必要だ。"
+  },
+  {
+    "id": 4,
+    "word": "adjust",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "調整する",
+    "example": "Please adjust the schedule if the meeting changes.",
+    "example_ja": "会議が変更になったら予定を調整してください。"
+  },
+  {
+    "id": 5,
+    "word": "administration",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "管理、行政",
+    "example": "He works in public administration.",
+    "example_ja": "彼は行政の仕事をしている。"
+  },
+  {
+    "id": 6,
+    "word": "advantage",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "利点、有利",
+    "example": "Experience is a strong advantage in this position.",
+    "example_ja": "経験はこの職で大きな強みになる。"
+  },
+  {
+    "id": 7,
+    "word": "analyze",
+    "pron": "",
+    "level": "IT",
+    "meaning": "分析する",
+    "example": "We analyze data to support better decisions.",
+    "example_ja": "より良い判断を支えるためにデータを分析する。"
+  },
+  {
+    "id": 8,
+    "word": "annual",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "年1回の、年間の",
+    "example": "The annual report was published yesterday.",
+    "example_ja": "年次報告書は昨日公開された。"
+  },
+  {
+    "id": 9,
+    "word": "applicant",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "応募者",
+    "example": "Each applicant must submit a resume.",
+    "example_ja": "各応募者は履歴書を提出しなければならない。"
+  },
+  {
+    "id": 10,
+    "word": "approve",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "承認する",
+    "example": "The manager approved the new plan.",
+    "example_ja": "管理者は新しい計画を承認した。"
+  },
+  {
+    "id": 11,
+    "word": "arrange",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "手配する、整える",
+    "example": "I will arrange a meeting with the contractor.",
+    "example_ja": "業者との打合せを手配します。"
+  },
+  {
+    "id": 12,
+    "word": "assess",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "評価する",
+    "example": "We need to assess the risk before starting.",
+    "example_ja": "始める前にリスクを評価する必要がある。"
+  },
+  {
+    "id": 13,
+    "word": "assign",
+    "pron": "",
+    "level": "IT",
+    "meaning": "割り当てる",
+    "example": "The system can assign tasks automatically.",
+    "example_ja": "そのシステムは作業を自動で割り当てられる。"
+  },
+  {
+    "id": 14,
+    "word": "available",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "利用可能な、空いている",
+    "example": "The room is available after three o'clock.",
+    "example_ja": "その部屋は3時以降利用可能です。"
+  },
+  {
+    "id": 15,
+    "word": "benefit",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "利益、恩恵",
+    "example": "This tool has a clear benefit for the team.",
+    "example_ja": "このツールはチームに明確な利益がある。"
+  },
+  {
+    "id": 16,
+    "word": "budget",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "予算",
+    "example": "The project must stay within the budget.",
+    "example_ja": "そのプロジェクトは予算内に収めなければならない。"
+  },
+  {
+    "id": 17,
+    "word": "candidate",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "候補者",
+    "example": "He is a strong candidate for the position.",
+    "example_ja": "彼はその職の有力な候補者だ。"
+  },
+  {
+    "id": 18,
+    "word": "capability",
+    "pron": "",
+    "level": "IT",
+    "meaning": "能力、機能",
+    "example": "The new software has advanced search capabilities.",
+    "example_ja": "新しいソフトには高度な検索機能がある。"
+  },
+  {
+    "id": 19,
+    "word": "confirm",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "確認する",
+    "example": "Please confirm the date by email.",
+    "example_ja": "日付をメールで確認してください。"
+  },
+  {
+    "id": 20,
+    "word": "consider",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "検討する、考慮する",
+    "example": "We should consider another option.",
+    "example_ja": "別の選択肢も検討すべきだ。"
+  },
+  {
+    "id": 21,
+    "word": "consistent",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "一貫した",
+    "example": "Consistent practice is important for language learning.",
+    "example_ja": "語学学習では一貫した練習が重要だ。"
+  },
+  {
+    "id": 22,
+    "word": "contractor",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "請負業者、契約業者",
+    "example": "The contractor will visit our house tomorrow.",
+    "example_ja": "業者が明日私たちの家を訪問する。"
+  },
+  {
+    "id": 23,
+    "word": "coordinate",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "調整する、連携する",
+    "example": "She coordinates schedules between departments.",
+    "example_ja": "彼女は部署間の予定を調整する。"
+  },
+  {
+    "id": 24,
+    "word": "deadline",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "締切",
+    "example": "The deadline for the application is next Friday.",
+    "example_ja": "応募の締切は来週金曜日だ。"
+  },
+  {
+    "id": 25,
+    "word": "decision",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "決定、判断",
+    "example": "This decision will affect the entire team.",
+    "example_ja": "この判断はチーム全体に影響する。"
+  },
+  {
+    "id": 26,
+    "word": "delay",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "遅れ、遅らせる",
+    "example": "Bad weather caused a delay in delivery.",
+    "example_ja": "悪天候で配送に遅れが出た。"
+  },
+  {
+    "id": 27,
+    "word": "deliver",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "届ける、提供する",
+    "example": "The company will deliver the equipment next week.",
+    "example_ja": "会社は来週その機材を届ける。"
+  },
+  {
+    "id": 28,
+    "word": "department",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "部署、部門",
+    "example": "He transferred to a new department.",
+    "example_ja": "彼は新しい部署に異動した。"
+  },
+  {
+    "id": 29,
+    "word": "develop",
+    "pron": "",
+    "level": "IT",
+    "meaning": "開発する、発展させる",
+    "example": "I want to develop a useful study app.",
+    "example_ja": "役に立つ学習アプリを開発したい。"
+  },
+  {
+    "id": 30,
+    "word": "efficient",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "効率的な",
+    "example": "The macro made the task more efficient.",
+    "example_ja": "そのマクロで作業がより効率的になった。"
+  },
+  {
+    "id": 31,
+    "word": "estimate",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "見積り、見積もる",
+    "example": "The estimate includes labor and materials.",
+    "example_ja": "その見積りには作業費と材料費が含まれている。"
+  },
+  {
+    "id": 32,
+    "word": "evaluate",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "評価する",
+    "example": "We need to evaluate the results carefully.",
+    "example_ja": "結果を慎重に評価する必要がある。"
+  },
+  {
+    "id": 33,
+    "word": "evidence",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "証拠、根拠",
+    "example": "The report should include clear evidence.",
+    "example_ja": "報告書には明確な根拠を含めるべきだ。"
+  },
+  {
+    "id": 34,
+    "word": "experience",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "経験",
+    "example": "His experience in intelligence work is valuable.",
+    "example_ja": "彼の情報業務の経験は価値がある。"
+  },
+  {
+    "id": 35,
+    "word": "expense",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "費用",
+    "example": "Travel expenses will be reimbursed.",
+    "example_ja": "旅費は払い戻される。"
+  },
+  {
+    "id": 36,
+    "word": "facility",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "施設、設備",
+    "example": "The facility has strict security rules.",
+    "example_ja": "その施設には厳しいセキュリティ規則がある。"
+  },
+  {
+    "id": 37,
+    "word": "feature",
+    "pron": "",
+    "level": "IT",
+    "meaning": "特徴、機能",
+    "example": "The app has a new review feature.",
+    "example_ja": "そのアプリには新しい復習機能がある。"
+  },
+  {
+    "id": 38,
+    "word": "frequent",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "頻繁な",
+    "example": "Frequent review helps memory.",
+    "example_ja": "頻繁な復習は記憶を助ける。"
+  },
+  {
+    "id": 39,
+    "word": "improve",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "改善する、上達する",
+    "example": "I want to improve my English step by step.",
+    "example_ja": "一歩ずつ英語を上達させたい。"
+  },
+  {
+    "id": 40,
+    "word": "include",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "含む",
+    "example": "The price includes installation.",
+    "example_ja": "その価格には設置費が含まれている。"
+  },
+  {
+    "id": 41,
+    "word": "increase",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "増える、増やす",
+    "example": "The number of words will increase to one hundred.",
+    "example_ja": "単語数は100語に増える。"
+  },
+  {
+    "id": 42,
+    "word": "indicate",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "示す",
+    "example": "The data indicate a clear trend.",
+    "example_ja": "そのデータは明確な傾向を示している。"
+  },
+  {
+    "id": 43,
+    "word": "individual",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "個人の、個々の",
+    "example": "Each individual has different strengths.",
+    "example_ja": "個人にはそれぞれ異なる強みがある。"
+  },
+  {
+    "id": 44,
+    "word": "install",
+    "pron": "",
+    "level": "IT",
+    "meaning": "設置する、インストールする",
+    "example": "The technician will install the air conditioner.",
+    "example_ja": "技術者がエアコンを設置する。"
+  },
+  {
+    "id": 45,
+    "word": "instruction",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "指示、説明",
+    "example": "Please read the instructions before using the app.",
+    "example_ja": "アプリを使う前に説明を読んでください。"
+  },
+  {
+    "id": 46,
+    "word": "maintain",
+    "pron": "",
+    "level": "IT",
+    "meaning": "維持する、保守する",
+    "example": "We need to maintain the system regularly.",
+    "example_ja": "システムを定期的に保守する必要がある。"
+  },
+  {
+    "id": 47,
+    "word": "manage",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "管理する",
+    "example": "He manages several projects at the same time.",
+    "example_ja": "彼はいくつものプロジェクトを同時に管理している。"
+  },
+  {
+    "id": 48,
+    "word": "monitor",
+    "pron": "",
+    "level": "IT",
+    "meaning": "監視する",
+    "example": "The team monitors the system every day.",
+    "example_ja": "チームは毎日システムを監視している。"
+  },
+  {
+    "id": 49,
+    "word": "notice",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "通知、気づく",
+    "example": "Please read the notice carefully.",
+    "example_ja": "通知を注意深く読んでください。"
+  },
+  {
+    "id": 50,
+    "word": "obtain",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "得る、取得する",
+    "example": "I want to obtain another qualification.",
+    "example_ja": "もう一つ資格を取得したい。"
+  },
+  {
+    "id": 51,
+    "word": "operate",
+    "pron": "",
+    "level": "IT",
+    "meaning": "操作する、運用する",
+    "example": "They operate the system twenty-four hours a day.",
+    "example_ja": "彼らはそのシステムを24時間運用している。"
+  },
+  {
+    "id": 52,
+    "word": "opportunity",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "機会",
+    "example": "This is a good opportunity to learn new skills.",
+    "example_ja": "これは新しい技能を学ぶ良い機会だ。"
+  },
+  {
+    "id": 53,
+    "word": "option",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "選択肢",
+    "example": "We still have another option.",
+    "example_ja": "まだ別の選択肢がある。"
+  },
+  {
+    "id": 54,
+    "word": "performance",
+    "pron": "",
+    "level": "IT",
+    "meaning": "性能、成果",
+    "example": "The performance of the system improved.",
+    "example_ja": "システムの性能が向上した。"
+  },
+  {
+    "id": 55,
+    "word": "permission",
+    "pron": "",
+    "level": "Security",
+    "meaning": "許可",
+    "example": "You need permission to access this file.",
+    "example_ja": "このファイルにアクセスするには許可が必要だ。"
+  },
+  {
+    "id": 56,
+    "word": "policy",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "方針、政策",
+    "example": "The company changed its security policy.",
+    "example_ja": "会社はセキュリティ方針を変更した。"
+  },
+  {
+    "id": 57,
+    "word": "prepare",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "準備する",
+    "example": "I prepare for the exam every morning.",
+    "example_ja": "私は毎朝試験の準備をしている。"
+  },
+  {
+    "id": 58,
+    "word": "previous",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "前の、以前の",
+    "example": "Please check the previous version.",
+    "example_ja": "前のバージョンを確認してください。"
+  },
+  {
+    "id": 59,
+    "word": "process",
+    "pron": "",
+    "level": "IT",
+    "meaning": "過程、処理する",
+    "example": "The program processes the data automatically.",
+    "example_ja": "そのプログラムはデータを自動で処理する。"
+  },
+  {
+    "id": 60,
+    "word": "provide",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "提供する",
+    "example": "The app provides short quizzes and explanations.",
+    "example_ja": "そのアプリは短い問題と解説を提供する。"
+  },
+  {
+    "id": 61,
+    "word": "purchase",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "購入する",
+    "example": "We plan to purchase a new air conditioner.",
+    "example_ja": "新しいエアコンを購入する予定だ。"
+  },
+  {
+    "id": 62,
+    "word": "reliable",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "信頼できる",
+    "example": "Reliable data is important for decision-making.",
+    "example_ja": "信頼できるデータは意思決定に重要だ。"
+  },
+  {
+    "id": 63,
+    "word": "require",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "必要とする、要求する",
+    "example": "This task requires careful attention.",
+    "example_ja": "この作業には慎重な注意が必要だ。"
+  },
+  {
+    "id": 64,
+    "word": "resolve",
+    "pron": "",
+    "level": "IT",
+    "meaning": "解決する",
+    "example": "We need to resolve the problem quickly.",
+    "example_ja": "その問題を早く解決する必要がある。"
+  },
+  {
+    "id": 65,
+    "word": "resource",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "資源、資料",
+    "example": "This website is a useful study resource.",
+    "example_ja": "このWebサイトは役に立つ学習資料だ。"
+  },
+  {
+    "id": 66,
+    "word": "review",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "見直す、復習する",
+    "example": "Review the words before going to bed.",
+    "example_ja": "寝る前に単語を復習しなさい。"
+  },
+  {
+    "id": 67,
+    "word": "schedule",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "予定、予定を組む",
+    "example": "I changed my exam schedule.",
+    "example_ja": "試験予定を変更した。"
+  },
+  {
+    "id": 68,
+    "word": "secure",
+    "pron": "",
+    "level": "Security",
+    "meaning": "安全な、確保する",
+    "example": "Use a secure password for your account.",
+    "example_ja": "アカウントには安全なパスワードを使いなさい。"
+  },
+  {
+    "id": 69,
+    "word": "significant",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "重要な、かなりの",
+    "example": "The change had a significant effect.",
+    "example_ja": "その変更は重要な影響を与えた。"
+  },
+  {
+    "id": 70,
+    "word": "submit",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "提出する",
+    "example": "Please submit the documents by Monday.",
+    "example_ja": "月曜日までに書類を提出してください。"
+  },
+  {
+    "id": 71,
+    "word": "sufficient",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "十分な",
+    "example": "We need sufficient time to test the app.",
+    "example_ja": "アプリを試すには十分な時間が必要だ。"
+  },
+  {
+    "id": 72,
+    "word": "support",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "支援する、支援",
+    "example": "This tool supports my daily study.",
+    "example_ja": "このツールは毎日の勉強を支えてくれる。"
+  },
+  {
+    "id": 73,
+    "word": "temporary",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "一時的な",
+    "example": "This is only a temporary solution.",
+    "example_ja": "これは一時的な解決策にすぎない。"
+  },
+  {
+    "id": 74,
+    "word": "transfer",
+    "pron": "",
+    "level": "TOEIC",
+    "meaning": "移す、異動する",
+    "example": "He may transfer to another section.",
+    "example_ja": "彼は別の部署に異動するかもしれない。"
+  },
+  {
+    "id": 75,
+    "word": "update",
+    "pron": "",
+    "level": "IT",
+    "meaning": "更新する",
+    "example": "I updated the word data yesterday.",
+    "example_ja": "昨日、単語データを更新した。"
+  },
+  {
+    "id": 76,
+    "word": "verify",
+    "pron": "",
+    "level": "IT",
+    "meaning": "検証する、確認する",
+    "example": "We must verify the result before reporting it.",
+    "example_ja": "報告前に結果を検証しなければならない。"
+  },
+  {
+    "id": 77,
+    "word": "access",
+    "pron": "",
+    "level": "IT",
+    "meaning": "アクセスする、利用権",
+    "example": "Only authorized users can access the database.",
+    "example_ja": "許可された利用者だけがデータベースにアクセスできる。"
+  },
+  {
+    "id": 78,
+    "word": "authentication",
+    "pron": "",
+    "level": "Security",
+    "meaning": "認証",
+    "example": "Two-factor authentication improves security.",
+    "example_ja": "二要素認証はセキュリティを向上させる。"
+  },
+  {
+    "id": 79,
+    "word": "backup",
+    "pron": "",
+    "level": "IT",
+    "meaning": "バックアップ",
+    "example": "Create a backup before changing the file.",
+    "example_ja": "ファイルを変更する前にバックアップを作りなさい。"
+  },
+  {
+    "id": 80,
+    "word": "bandwidth",
+    "pron": "",
+    "level": "IT",
+    "meaning": "帯域幅",
+    "example": "The network requires more bandwidth.",
+    "example_ja": "そのネットワークにはより多くの帯域幅が必要だ。"
+  },
+  {
+    "id": 81,
+    "word": "cache",
+    "pron": "",
+    "level": "IT",
+    "meaning": "キャッシュ",
+    "example": "The browser stores data in its cache.",
+    "example_ja": "ブラウザはデータをキャッシュに保存する。"
+  },
+  {
+    "id": 82,
+    "word": "configure",
+    "pron": "",
+    "level": "IT",
+    "meaning": "設定する",
+    "example": "You need to configure the network settings.",
+    "example_ja": "ネットワーク設定を構成する必要がある。"
+  },
+  {
+    "id": 83,
+    "word": "credential",
+    "pron": "",
+    "level": "Security",
+    "meaning": "認証情報、資格情報",
+    "example": "Never share your credentials with others.",
+    "example_ja": "認証情報を他人と共有してはいけない。"
+  },
+  {
+    "id": 84,
+    "word": "database",
+    "pron": "",
+    "level": "IT",
+    "meaning": "データベース",
+    "example": "The application stores questions in a database.",
+    "example_ja": "そのアプリは問題をデータベースに保存する。"
+  },
+  {
+    "id": 85,
+    "word": "detect",
+    "pron": "",
+    "level": "Security",
+    "meaning": "検出する",
+    "example": "The system can detect unusual activity.",
+    "example_ja": "そのシステムは異常な活動を検出できる。"
+  },
+  {
+    "id": 86,
+    "word": "encrypt",
+    "pron": "",
+    "level": "Security",
+    "meaning": "暗号化する",
+    "example": "Sensitive data should be encrypted.",
+    "example_ja": "機密データは暗号化されるべきだ。"
+  },
+  {
+    "id": 87,
+    "word": "execute",
+    "pron": "",
+    "level": "IT",
+    "meaning": "実行する",
+    "example": "The program will execute the command.",
+    "example_ja": "そのプログラムは命令を実行する。"
+  },
+  {
+    "id": 88,
+    "word": "function",
+    "pron": "",
+    "level": "IT",
+    "meaning": "関数、機能",
+    "example": "This function saves incorrect answers.",
+    "example_ja": "この機能は間違えた答えを保存する。"
+  },
+  {
+    "id": 89,
+    "word": "input",
+    "pron": "",
+    "level": "IT",
+    "meaning": "入力",
+    "example": "Check the input before running the program.",
+    "example_ja": "プログラムを実行する前に入力を確認しなさい。"
+  },
+  {
+    "id": 90,
+    "word": "integrate",
+    "pron": "",
+    "level": "IT",
+    "meaning": "統合する",
+    "example": "The tool integrates words and example sentences.",
+    "example_ja": "そのツールは単語と例文を統合する。"
+  },
+  {
+    "id": 91,
+    "word": "interface",
+    "pron": "",
+    "level": "IT",
+    "meaning": "インターフェース、接点",
+    "example": "The user interface is simple and clear.",
+    "example_ja": "ユーザーインターフェースは単純で分かりやすい。"
+  },
+  {
+    "id": 92,
+    "word": "malware",
+    "pron": "",
+    "level": "Security",
+    "meaning": "マルウェア",
+    "example": "Malware can steal personal information.",
+    "example_ja": "マルウェアは個人情報を盗む可能性がある。"
+  },
+  {
+    "id": 93,
+    "word": "network",
+    "pron": "",
+    "level": "IT",
+    "meaning": "ネットワーク",
+    "example": "The network is not available now.",
+    "example_ja": "現在ネットワークは利用できない。"
+  },
+  {
+    "id": 94,
+    "word": "output",
+    "pron": "",
+    "level": "IT",
+    "meaning": "出力",
+    "example": "The output is saved as a JSON file.",
+    "example_ja": "出力はJSONファイルとして保存される。"
+  },
+  {
+    "id": 95,
+    "word": "parameter",
+    "pron": "",
+    "level": "IT",
+    "meaning": "パラメータ",
+    "example": "Change the parameter and run the test again.",
+    "example_ja": "パラメータを変えてもう一度テストしなさい。"
+  },
+  {
+    "id": 96,
+    "word": "protocol",
+    "pron": "",
+    "level": "IT",
+    "meaning": "プロトコル、通信規約",
+    "example": "HTTPS is a secure communication protocol.",
+    "example_ja": "HTTPSは安全な通信プロトコルだ。"
+  },
+  {
+    "id": 97,
+    "word": "restore",
+    "pron": "",
+    "level": "IT",
+    "meaning": "復元する",
+    "example": "You can restore the data from a backup.",
+    "example_ja": "バックアップからデータを復元できる。"
+  },
+  {
+    "id": 98,
+    "word": "threat",
+    "pron": "",
+    "level": "Security",
+    "meaning": "脅威",
+    "example": "Phishing is a common security threat.",
+    "example_ja": "フィッシングは一般的なセキュリティ脅威だ。"
+  },
+  {
+    "id": 99,
+    "word": "vulnerability",
+    "pron": "",
+    "level": "Security",
+    "meaning": "脆弱性",
+    "example": "The update fixed a serious vulnerability.",
+    "example_ja": "その更新は重大な脆弱性を修正した。"
+  },
+  {
+    "id": 100,
+    "word": "workflow",
+    "pron": "",
+    "level": "IT",
+    "meaning": "作業の流れ、ワークフロー",
+    "example": "The macro improved our workflow.",
+    "example_ja": "そのマクロは私たちの作業の流れを改善した。"
+  }
+]
