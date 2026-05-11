@@ -1,1 +1,343 @@
-const STORAGE="toeic600_vocab_3000_v1";const IMPORT="toeic600_vocab_import_v1";let words=loadWords();let index=0;let mode="all";let filtered=[];let data=loadData();function loadWords(){try{const v=JSON.parse(localStorage.getItem(IMPORT));if(Array.isArray(v)&&v.length)return v}catch{}return WORDS}function loadData(){try{return{learned:0,known:0,weakIds:[],savedIds:[],...(JSON.parse(localStorage.getItem(STORAGE))||{})}}catch{return{learned:0,known:0,weakIds:[],savedIds:[]}}}function save(){localStorage.setItem(STORAGE,JSON.stringify(data));renderStats()}function categories(){return[...new Set(words.map(w=>w.level||"未分類"))].sort()}function setupFilter(){const f=document.getElementById("filter");const now=f.value;f.innerHTML='<option value="">全カテゴリ</option>'+categories().map(c=>`<option value="${c}">${c}</option>`).join("");f.value=categories().includes(now)?now:""}function applyFilter(){const q=document.getElementById("search").value.toLowerCase();const cat=document.getElementById("filter").value;filtered=words.filter(w=>(!cat||w.level===cat)&&(!q||[w.word,w.meaning,w.example,w.example_ja,w.source].join(" ").toLowerCase().includes(q)));if(mode==="weak")filtered=filtered.filter(w=>data.weakIds.includes(w.id));if(mode==="saved")filtered=filtered.filter(w=>data.savedIds.includes(w.id));if(!filtered.length){alert("対象の単語がありません");mode="all";filtered=words}index=Math.min(index,filtered.length-1);render()}function renderStats(){document.getElementById("total").textContent=words.length;document.getElementById("learned").textContent=data.learned;document.getElementById("known").textContent=data.known||0;document.getElementById("weak").textContent=data.weakIds.length;document.getElementById("saved").textContent=data.savedIds.length}function render(){const w=filtered[index]||words[0];document.getElementById("level").textContent=w.level||"WORD";document.getElementById("word").textContent=w.word;const meaningEl=document.getElementById("meaning");meaningEl.textContent=w.meaning;meaningEl.classList.add("hiddenMeaning");document.getElementById("showMeaningBtn").textContent="日本語を見る";document.getElementById("exampleJa").classList.add("hiddenJa");document.getElementById("example").textContent=w.example;document.getElementById("exampleJa").textContent=w.example_ja;document.getElementById("saveBtn").textContent=data.savedIds.includes(w.id)?"★ 保存中":"☆ 保存";renderStats()}let voiceList=[];function preferredVoice(){const select=document.getElementById("voiceSelect");if(select&&select.value){return voiceList.find(v=>v.name===select.value)||null}const preferred=["Samantha","Karen","Daniel","Google US English","Google UK English Female","Microsoft Aria","Microsoft Jenny","Microsoft Zira"];return voiceList.find(v=>preferred.some(p=>v.name.includes(p)))||voiceList.find(v=>v.lang&&v.lang.startsWith("en-US"))||voiceList.find(v=>v.lang&&v.lang.startsWith("en"))||null}function loadVoices(){if(!("speechSynthesis" in window))return;voiceList=speechSynthesis.getVoices().filter(v=>v.lang&&v.lang.startsWith("en"));const select=document.getElementById("voiceSelect");if(!select)return;const current=select.value;select.innerHTML=voiceList.map(v=>`<option value="${v.name}">${v.name} / ${v.lang}</option>`).join("");const pv=preferredVoice();select.value=current||pv?.name||voiceList[0]?.name||""}function speak(text,rate=0.9){if(!("speechSynthesis" in window)){alert("このブラウザは音声読み上げに対応していません");return}speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang="en-US";const rr=document.getElementById("rateRange");const pr=document.getElementById("pitchRange");u.rate=rate||Number(rr?.value||0.82);u.pitch=Number(pr?.value||1.0);const v=preferredVoice();if(v)u.voice=v;speechSynthesis.speak(u)}function current(){return filtered[index]||words[0]}function next(){index=(index+1)%filtered.length;render()}document.getElementById("speakWord").onclick=()=>speak(current().word,Number(document.getElementById("rateRange")?.value||0.82));document.getElementById("speakExample").onclick=()=>speak(current().example,Number(document.getElementById("rateRange")?.value||0.82));document.getElementById("speakSlow").onclick=()=>speak(current().example,0.62);document.getElementById("nextBtn").onclick=next;document.getElementById("randomBtn").onclick=()=>{mode="all";filtered=words;index=Math.floor(Math.random()*words.length);render()};document.getElementById("wrongBtn").onclick=()=>{mode="weak";index=0;applyFilter()};document.getElementById("savedBtn").onclick=()=>{mode="saved";index=0;applyFilter()};document.getElementById("search").oninput=()=>{mode="all";applyFilter()};document.getElementById("filter").onchange=()=>{mode="all";applyFilter()};document.getElementById("saveBtn").onclick=()=>{const id=current().id;if(data.savedIds.includes(id))data.savedIds=data.savedIds.filter(x=>x!==id);else data.savedIds.push(id);save();render()};document.getElementById("weakMark").onclick=()=>{const id=current().id;if(!data.weakIds.includes(id))data.weakIds.push(id);data.learned++;save();next()};document.getElementById("knownMark").onclick=()=>{const id=current().id;data.weakIds=data.weakIds.filter(x=>x!==id);data.known=(data.known||0)+1;data.learned++;save();next()};document.getElementById("importFile").onchange=async e=>{const file=e.target.files[0];if(!file)return;try{const arr=JSON.parse(await file.text());if(!Array.isArray(arr))throw new Error("JSONは配列にしてください");words=arr.map((w,i)=>({id:w.id??i+1,word:w.word,level:w.level||"未分類",meaning:w.meaning,example:w.example,example_ja:w.example_ja||"",source:w.source||""})).filter(w=>w.word&&w.meaning&&w.example);localStorage.setItem(IMPORT,JSON.stringify(words));setupFilter();mode="all";index=0;applyFilter();alert(words.length+"語を読み込みました")}catch(err){alert("読み込み失敗: "+err.message)}e.target.value=""};document.getElementById("resetBtn").onclick=()=>{localStorage.removeItem(IMPORT);words=WORDS;setupFilter();mode="all";index=0;applyFilter()};document.getElementById("showMeaningBtn").onclick=()=>{const m=document.getElementById("meaning");const ja=document.getElementById("exampleJa");const hidden=m.classList.contains("hiddenMeaning");if(hidden){m.classList.remove("hiddenMeaning");ja.classList.remove("hiddenJa");document.getElementById("showMeaningBtn").textContent="日本語を隠す"}else{m.classList.add("hiddenMeaning");ja.classList.add("hiddenJa");document.getElementById("showMeaningBtn").textContent="日本語を見る"}};loadVoices();if("speechSynthesis" in window){speechSynthesis.onvoiceschanged=loadVoices}setupFilter();applyFilter();
+const STORAGE = "toeic600_vocab_3000_v5";
+const IMPORT = "toeic600_vocab_import_v1";
+
+let words = loadWords();
+let index = 0;
+let mode = "all";
+let quizMode = false;
+let filtered = [];
+let data = loadData();
+let voiceList = [];
+
+function loadWords() {
+  try {
+    const v = JSON.parse(localStorage.getItem(IMPORT));
+    if (Array.isArray(v) && v.length) return v;
+  } catch {}
+  return WORDS;
+}
+
+function loadData() {
+  try {
+    return {
+      learned: 0,
+      known: 0,
+      weakIds: [],
+      savedIds: [],
+      quizCorrect: 0,
+      quizWrong: 0,
+      ...(JSON.parse(localStorage.getItem(STORAGE)) || {})
+    };
+  } catch {
+    return { learned: 0, known: 0, weakIds: [], savedIds: [], quizCorrect: 0, quizWrong: 0 };
+  }
+}
+
+function save() {
+  localStorage.setItem(STORAGE, JSON.stringify(data));
+  renderStats();
+}
+
+function categories() {
+  return [...new Set(words.map(w => w.level || "未分類"))].sort();
+}
+
+function setupFilter() {
+  const f = document.getElementById("filter");
+  const now = f.value;
+  f.innerHTML = '<option value="">全カテゴリ</option>' + categories().map(c => `<option value="${c}">${c}</option>`).join("");
+  f.value = categories().includes(now) ? now : "";
+}
+
+function applyFilter() {
+  const q = document.getElementById("search").value.toLowerCase();
+  const cat = document.getElementById("filter").value;
+  filtered = words.filter(w =>
+    (!cat || w.level === cat) &&
+    (!q || [w.word, w.meaning, w.example, w.example_ja, w.source].join(" ").toLowerCase().includes(q))
+  );
+
+  if (mode === "weak") filtered = filtered.filter(w => data.weakIds.includes(w.id));
+  if (mode === "saved") filtered = filtered.filter(w => data.savedIds.includes(w.id));
+
+  if (!filtered.length) {
+    alert("対象の単語がありません");
+    mode = "all";
+    filtered = words;
+  }
+  index = Math.min(index, filtered.length - 1);
+  render();
+}
+
+function renderStats() {
+  document.getElementById("total").textContent = words.length;
+  document.getElementById("learned").textContent = data.learned;
+  document.getElementById("known").textContent = data.known || 0;
+  document.getElementById("weak").textContent = data.weakIds.length;
+  document.getElementById("saved").textContent = data.savedIds.length;
+}
+
+function current() {
+  return filtered[index] || words[0];
+}
+
+function render() {
+  const w = current();
+  document.getElementById("level").textContent = quizMode ? "4択テスト" : (w.level || "WORD");
+  document.getElementById("word").textContent = w.word;
+  document.getElementById("meaning").textContent = w.meaning;
+  document.getElementById("example").textContent = w.example;
+  document.getElementById("exampleJa").textContent = w.example_ja;
+  document.getElementById("saveBtn").textContent = data.savedIds.includes(w.id) ? "★ 保存中" : "☆ 保存";
+
+  hideJapanese();
+
+  if (quizMode) {
+    showQuiz(w);
+  } else {
+    hideQuiz();
+  }
+
+  renderStats();
+}
+
+function hideJapanese() {
+  const m = document.getElementById("meaning");
+  const ja = document.getElementById("exampleJa");
+  const btn = document.getElementById("showMeaningBtn");
+  if (m) m.classList.add("hiddenMeaning");
+  if (ja) ja.classList.add("hiddenJa");
+  if (btn) btn.textContent = "日本語を見る";
+}
+
+function toggleJapanese() {
+  const m = document.getElementById("meaning");
+  const ja = document.getElementById("exampleJa");
+  const hidden = m.classList.contains("hiddenMeaning");
+  if (hidden) {
+    m.classList.remove("hiddenMeaning");
+    ja.classList.remove("hiddenJa");
+    document.getElementById("showMeaningBtn").textContent = "日本語を隠す";
+  } else {
+    hideJapanese();
+  }
+}
+
+function shuffle(arr) {
+  return [...arr].sort(() => Math.random() - 0.5);
+}
+
+function makeQuizChoices(w) {
+  const wrong = shuffle(words.filter(x => x.id !== w.id && x.meaning && x.meaning !== w.meaning))
+    .slice(0, 3)
+    .map(x => x.meaning);
+  return shuffle([w.meaning, ...wrong]);
+}
+
+function showQuiz(w) {
+  const area = document.getElementById("quizArea");
+  const choices = document.getElementById("quizChoices");
+  const result = document.getElementById("quizResult");
+
+  area.classList.remove("hidden");
+  result.className = "quizResult hidden";
+  result.innerHTML = "";
+  choices.innerHTML = "";
+
+  makeQuizChoices(w).forEach((text, i) => {
+    const btn = document.createElement("button");
+    btn.className = "quizChoice";
+    btn.textContent = `${String.fromCharCode(65 + i)}. ${text}`;
+    btn.onclick = () => answerQuiz(btn, text, w);
+    choices.appendChild(btn);
+  });
+}
+
+function hideQuiz() {
+  document.getElementById("quizArea")?.classList.add("hidden");
+}
+
+function answerQuiz(button, selected, w) {
+  const isCorrect = selected === w.meaning;
+  const buttons = [...document.querySelectorAll(".quizChoice")];
+
+  buttons.forEach(b => {
+    b.disabled = true;
+    if (b.textContent.includes(w.meaning)) b.classList.add("correct");
+  });
+
+  if (!isCorrect) {
+    button.classList.add("wrong");
+    if (!data.weakIds.includes(w.id)) data.weakIds.push(w.id);
+    data.quizWrong = (data.quizWrong || 0) + 1;
+  } else {
+    data.weakIds = data.weakIds.filter(id => id !== w.id);
+    data.quizCorrect = (data.quizCorrect || 0) + 1;
+    data.known = (data.known || 0) + 1;
+  }
+
+  data.learned++;
+
+  document.getElementById("meaning").classList.remove("hiddenMeaning");
+  document.getElementById("exampleJa").classList.remove("hiddenJa");
+  document.getElementById("showMeaningBtn").textContent = "日本語を隠す";
+
+  const result = document.getElementById("quizResult");
+  result.className = `quizResult ${isCorrect ? "ok" : "ng"}`;
+  result.innerHTML = `<strong>${isCorrect ? "正解！" : "不正解"}</strong><br>${w.word} = ${w.meaning}<br>${w.example}<br>${w.example_ja}`;
+
+  save();
+}
+
+function next() {
+  index = (index + 1) % filtered.length;
+  render();
+}
+
+function preferredVoice() {
+  const select = document.getElementById("voiceSelect");
+  if (select && select.value) return voiceList.find(v => v.name === select.value) || null;
+  const preferred = ["Samantha", "Karen", "Daniel", "Google US English", "Google UK English Female", "Microsoft Aria", "Microsoft Jenny", "Microsoft Zira"];
+  return voiceList.find(v => preferred.some(p => v.name.includes(p))) ||
+    voiceList.find(v => v.lang && v.lang.startsWith("en-US")) ||
+    voiceList.find(v => v.lang && v.lang.startsWith("en")) || null;
+}
+
+function loadVoices() {
+  if (!("speechSynthesis" in window)) return;
+  voiceList = speechSynthesis.getVoices().filter(v => v.lang && v.lang.startsWith("en"));
+  const select = document.getElementById("voiceSelect");
+  if (!select) return;
+  const current = select.value;
+  select.innerHTML = voiceList.map(v => `<option value="${v.name}">${v.name} / ${v.lang}</option>`).join("");
+  const pv = preferredVoice();
+  select.value = current || pv?.name || voiceList[0]?.name || "";
+}
+
+function speak(text, rate = 0.9) {
+  if (!("speechSynthesis" in window)) {
+    alert("このブラウザは音声読み上げに対応していません");
+    return;
+  }
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = "en-US";
+  const rr = document.getElementById("rateRange");
+  const pr = document.getElementById("pitchRange");
+  u.rate = rate || Number(rr?.value || 0.82);
+  u.pitch = Number(pr?.value || 1.0);
+  const v = preferredVoice();
+  if (v) u.voice = v;
+  speechSynthesis.speak(u);
+}
+
+document.getElementById("speakWord").onclick = () => speak(current().word, Number(document.getElementById("rateRange")?.value || 0.82));
+document.getElementById("speakExample").onclick = () => speak(current().example, Number(document.getElementById("rateRange")?.value || 0.82));
+document.getElementById("speakSlow").onclick = () => speak(current().example, 0.62);
+
+document.getElementById("nextBtn").onclick = next;
+
+document.getElementById("randomBtn").onclick = () => {
+  quizMode = false;
+  mode = "all";
+  filtered = words;
+  index = Math.floor(Math.random() * words.length);
+  render();
+};
+
+document.getElementById("quizBtn").onclick = () => {
+  quizMode = !quizMode;
+  document.getElementById("quizBtn").textContent = quizMode ? "単語帳" : "4択テスト";
+  mode = "all";
+  applyFilter();
+};
+
+document.getElementById("wrongBtn").onclick = () => {
+  mode = "weak";
+  index = 0;
+  applyFilter();
+};
+
+document.getElementById("savedBtn").onclick = () => {
+  mode = "saved";
+  index = 0;
+  applyFilter();
+};
+
+document.getElementById("search").oninput = () => {
+  mode = "all";
+  applyFilter();
+};
+
+document.getElementById("filter").onchange = () => {
+  mode = "all";
+  applyFilter();
+};
+
+document.getElementById("saveBtn").onclick = () => {
+  const id = current().id;
+  if (data.savedIds.includes(id)) data.savedIds = data.savedIds.filter(x => x !== id);
+  else data.savedIds.push(id);
+  save();
+  render();
+};
+
+document.getElementById("weakMark").onclick = () => {
+  const id = current().id;
+  if (!data.weakIds.includes(id)) data.weakIds.push(id);
+  data.learned++;
+  save();
+  next();
+};
+
+document.getElementById("knownMark").onclick = () => {
+  const id = current().id;
+  data.weakIds = data.weakIds.filter(x => x !== id);
+  data.known = (data.known || 0) + 1;
+  data.learned++;
+  save();
+  next();
+};
+
+document.getElementById("showMeaningBtn").onclick = toggleJapanese;
+
+document.getElementById("importFile").onchange = async e => {
+  const file = e.target.files[0];
+  if (!file) return;
+  try {
+    const arr = JSON.parse(await file.text());
+    if (!Array.isArray(arr)) throw new Error("JSONは配列にしてください");
+    words = arr.map((w, i) => ({
+      id: w.id ?? i + 1,
+      word: w.word,
+      level: w.level || "未分類",
+      meaning: w.meaning,
+      example: w.example,
+      example_ja: w.example_ja || "",
+      source: w.source || ""
+    })).filter(w => w.word && w.meaning && w.example);
+    localStorage.setItem(IMPORT, JSON.stringify(words));
+    setupFilter();
+    mode = "all";
+    index = 0;
+    applyFilter();
+    alert(words.length + "語を読み込みました");
+  } catch (err) {
+    alert("読み込み失敗: " + err.message);
+  }
+  e.target.value = "";
+};
+
+document.getElementById("resetBtn").onclick = () => {
+  localStorage.removeItem(IMPORT);
+  words = WORDS;
+  setupFilter();
+  mode = "all";
+  index = 0;
+  applyFilter();
+};
+
+loadVoices();
+if ("speechSynthesis" in window) speechSynthesis.onvoiceschanged = loadVoices;
+setupFilter();
+applyFilter();
