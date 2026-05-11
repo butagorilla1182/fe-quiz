@@ -306,3 +306,16 @@ h1 {
   font-size: 12px;
   margin: -6px 0 12px;
 }
+
+.homeLink {
+  display: inline-block;
+  margin: 10px 0 6px;
+  color: var(--main);
+  font-weight: 900;
+  text-decoration: none;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 10px 14px;
+}
+.homeLink:active { transform: scale(.98); }
